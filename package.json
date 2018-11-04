@@ -1,0 +1,19 @@
+{
+  "name": "giphy-search",
+  "version": "1.0.0",
+  "description": "Search for giphy and add GIFs to favorites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amac0183/giphy-search.git"
+  },
+  "author": "Andrew Hayakawa <isao.a.hayakawa@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amac0183/giphy-search/issues"
+  },
+  "homepage": "https://github.com/amac0183/giphy-search#readme"
+}
