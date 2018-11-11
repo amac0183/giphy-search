@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
-import {search} from '../actions/search'
+import {connect} from 'react-redux';
+import {search} from '../actions/search';
+import {Results} from '../components/results.jsx';
 
 export class SearchComponent extends Component {
   constructor (props) {
@@ -19,7 +20,6 @@ export class SearchComponent extends Component {
     else {
       this.props.dispatch(search(searchString));
       // @todo put the api_key in some config file
-      console.log(`https://api.giphy.com/v1/gifs/search?api_key=GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw&q=${encodeURI(searchString)}`)
     }
   }
 
@@ -30,11 +30,13 @@ export class SearchComponent extends Component {
           <input id='searchString' name='searchString' type='text' name='search' /><br />
           <input type='submit' />
         </form>
+        <Results results={this.props.results} searchString={this.props.searchString} />
       </div>
     )
   }
 }
 
 export const Search = connect(state => ({
-  searchString: state.searchString
+  results: state.results,
+  searchString: state.searchString,
 }))(SearchComponent)

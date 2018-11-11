@@ -1,9 +1,9 @@
-export const search = (text) => ({
+export const search = (searchString) => ({
   type: 'SEARCH',
-  text
+  searchString
 })
 
-export const loadResults = (response) => ({
+export const loadResults = (results) => ({
   type: 'LOAD_RESULTS',
-  response
+  results
 })
