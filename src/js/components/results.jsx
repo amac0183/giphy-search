@@ -1,13 +1,16 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import {ErrorStatus} from './error_status.jsx';
 import {Giphy} from './giphy.jsx'
 import {ResultsContainer} from './results_container.jsx';
-import {ResultsStatus} from './results_status.jsx';
+import {Status} from './status.jsx';
 
-export const Results = ({addFavorite, removeFavorite, results, searchString, updateFavoriteStatus}) => (
+export const Results = ({addFavorite, errorMessage, errorStatus, removeFavorite, results,
+  searchString, updateFavoriteStatus}) => (
   <ResultsContainer>
-    {!_.isEmpty(results) && <ResultsStatus message={`${_.size(results)} results for ${searchString}`}/>}
+    {errorStatus && <ErrorStatus>{errorMessage}</ErrorStatus>}
+    {!_.isEmpty(results) && <Status>{_.size(results)} results for {searchString}</Status>}
     <div className='results' style={{display: 'flex', flexWrap: 'wrap'}}>
       {
         _.map(results, (result, index) => (

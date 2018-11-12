@@ -4,7 +4,16 @@ import createSagaMiddleware from 'redux-saga'
 import {reducers} from '../reducers'
 import {root} from '../sagas/';
 
-export const configureStore = (initialState = {}) => {
+const INTIAL_STATE = {
+  appStatus: {
+    error: false
+  },
+  favorites: [],
+  search: {
+    results: []
+  }
+}
+export const configureStore = (initialState = INTIAL_STATE) => {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
     reducers,
