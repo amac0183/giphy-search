@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ErrorStatus} from './error_status.jsx';
-import {Giphy} from './giphy.jsx'
-import {ResultsContainer} from './results_container.jsx';
-import {Status} from './status.jsx';
+import {ErrorStatus} from './error_status';
+import {Giphy} from './giphy'
+import {ResultsContainer} from './results_container';
+import {Status} from './status';
 
 export const Results = ({addFavorite, errorMessage, errorStatus, removeFavorite, results,
   searchString, updateFavoriteStatus}) => (

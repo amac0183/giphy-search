@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Favorite, FavoriteBorder} from '@material-ui/icons';
-import {FavoriteContainer} from './giphy_favorite_icon_container.jsx';
-import {GiphyContainer} from './giphy_container.jsx';
-import {GiphyImageContainer} from './giphy_image_container.jsx';
-import {GiphyLabelFavoriteContainer} from './giphy_label_container.jsx';
-import {GiphyLabel} from './giphy_label.jsx';
+import {FavoriteContainer} from './giphy_favorite_icon_container';
+import {GiphyContainer} from './giphy_container';
+import {GiphyImageContainer} from './giphy_image_container';
+import {GiphyLabelFavoriteContainer} from './giphy_label_container';
+import {GiphyLabel} from './giphy_label';
 
 export class Giphy extends Component {
   constructor(props) {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
-import {Search} from './search.jsx';
-import {Title} from '../components/title.jsx'
+import {Search} from './search';
+import {Title} from '../components/title'
 
 export class App extends Component {
   render() {

@@ -2,11 +2,11 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Results} from '../components/results.jsx';
 import {setError} from '../actions/app_status';
 import {addFavorite, removeFavorite} from '../actions/favorites'
 import {loadFavorites, loadResults, search, updateFavoriteStatus} from '../actions/search';
-import {SearchBar} from '../components/search_bar.jsx'
+import {Results} from '../components/results';
+import {SearchBar} from '../components/search_bar'
 
 export class SearchComponent extends Component {
   constructor (props) {
