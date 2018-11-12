@@ -18,3 +18,8 @@ export const updateFavoritesStatuses = (favorites) => ({
   type: 'UPDATE_FAVORITE_STATUSES',
   favorites
 });
+
+export const loadFavorites = (favorites) => ({
+  type: 'LOAD_FAVORITES',
+  favorites
+})

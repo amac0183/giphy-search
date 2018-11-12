@@ -9,9 +9,9 @@ export const search = (state = {}, action) => {
         searchString: action.searchString
       });
     case 'LOAD_RESULTS':
-      return _.merge({}, state, {
-        results: action.results
-      });
+      const newState = _.cloneDeep(state);
+      newState.results = action.results;
+      return newState;
     case 'UPDATE_FAVORITE_STATUS':
       return _.merge({}, state, {
         results: _.map(state.results, giphy => {
