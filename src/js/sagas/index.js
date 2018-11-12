@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import 'babel-polyfill';
 import {put, takeEvery} from 'redux-saga/effects';
-import {loadResults} from '../actions/search';
+import {loadResults, updateFavoritesStatuses} from '../actions/search';
 
 const pickResponseData = (json) => {
   return _
@@ -15,13 +15,14 @@ const pickResponseData = (json) => {
     .value()
 }
 
-export function* fetchGiphys({searchString}) {
+export function* fetchGiphys({favorites, searchString}) {
   try {
     // @todo pass api key from config
     const response = yield fetch(`https://api.giphy.com/v1/gifs/search?api_key=GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw&q=${encodeURI(searchString)}`);
     const json = yield response.json();
     const pickedData = pickResponseData(json)
     yield put(loadResults(pickedData));
+    yield put(updateFavoritesStatuses(favorites))
   } catch (e) {
       // @todo display error!
       console.log('errror fetching!')
