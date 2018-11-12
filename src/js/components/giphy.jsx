@@ -1,33 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import {Favorite, FavoriteBorder} from '@material-ui/icons';
-
-const ComponentContainer = styled.div`
-  padding: 5px;
-  padding-bottom: 15px;
-`;
-
-const HeadingContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-`;
-
-const NameContainer = styled.h3`
-  height: 50px;
-  margin: 0;
-  white-space: normal !important;
-  max-width: 80%;
-`;
-
-const FavoriteContainer = styled.div`
-  padding-right: 5px;
-`;
-
-const ImageContainer = styled.div`
-  height: 200px;
-`;
+import {FavoriteContainer} from './giphy_favorite_icon_container.jsx';
+import {GiphyContainer} from './giphy_container.jsx';
+import {GiphyImageContainer} from './giphy_image_container.jsx';
+import {GiphyLabelFavoriteContainer} from './giphy_label_container.jsx';
+import {GiphyLabel} from './giphy_label.jsx';
 
 export class Giphy extends Component {
   constructor(props) {
@@ -51,11 +29,11 @@ export class Giphy extends Component {
   render() {
     const {favorite, name, url} = this.props;
     return (
-      <ComponentContainer>
-        <ImageContainer>
+      <GiphyContainer>
+        <GiphyImageContainer>
           <img src={url} />
-        </ImageContainer>
-        <HeadingContainer>
+        </GiphyImageContainer>
+        <GiphyLabelFavoriteContainer>
           {
             favorite && (
               <div onClick={this.removeFavoritesHandler} style={{ widht: '20px', height: '20px'}} >
@@ -74,11 +52,11 @@ export class Giphy extends Component {
               </div>
             )
           }
-          <NameContainer>
+          <GiphyLabel>
             {name}
-          </NameContainer>
-        </HeadingContainer>
-      </ComponentContainer>
+          </GiphyLabel>
+        </GiphyLabelFavoriteContainer>
+      </GiphyContainer>
     )
   }
 }

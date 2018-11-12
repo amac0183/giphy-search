@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Results} from '../components/results.jsx';
 import {addFavorite, removeFavorite} from '../actions/favorites'
 import {search, updateFavoriteStatus} from '../actions/search';
+import {SearchBar} from '../components/search_bar.jsx'
 
 export class SearchComponent extends Component {
   constructor (props) {
@@ -27,10 +28,12 @@ export class SearchComponent extends Component {
   render () {
     return (
       <div className='search-container'>
-        <form onSubmit={this.submitHandler}>
-          <input id='searchString' name='searchString' type='text' name='search' /><br />
-          <input type='submit' />
-        </form>
+        <SearchBar>
+          <form onSubmit={this.submitHandler}>
+            <input id='searchString' name='searchString' type='text' name='search' />
+            <input type='submit' />
+          </form>
+        </SearchBar>
         <Results
           addFavorite={this.props.addFavorite}
           removeFavorite={this.props.removeFavorite}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
 import {Search} from './search.jsx';
+import {Title} from '../components/title.jsx'
 
 export class App extends Component {
   render() {
@@ -10,7 +11,7 @@ export class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <div>Giphy Search</div>
+          <Title>Giphy Search</Title>
           <Search />
         </div>
       </Provider>

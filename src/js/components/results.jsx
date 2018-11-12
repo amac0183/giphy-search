@@ -2,10 +2,12 @@ import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Giphy} from './giphy.jsx'
+import {ResultsContainer} from './results_container.jsx';
+import {ResultsStatus} from './results_status.jsx';
 
 export const Results = ({addFavorite, removeFavorite, results, searchString, updateFavoriteStatus}) => (
-  <div className='reults-component'>
-    {!_.isEmpty(results) && <div>Search Results for {searchString}</div>}
+  <ResultsContainer>
+    {!_.isEmpty(results) && <ResultsStatus message={`${_.size(results)} results for ${searchString}`}/>}
     <div className='results' style={{display: 'flex', flexWrap: 'wrap'}}>
       {
         _.map(results, (result, index) => (
@@ -19,7 +21,7 @@ export const Results = ({addFavorite, removeFavorite, results, searchString, upd
         ))
       }
     </div>
-  </div>
+  </ResultsContainer>
 )
 
 Results.defaultProps = {
