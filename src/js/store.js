@@ -1,8 +1,8 @@
 import {applyMiddleware, createStore} from 'redux';
 import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
-import {reducers} from '../reducers'
-import {root} from '../sagas/';
+import {reducers} from './reducers'
+import {root} from './sagas';
 
 const INTIAL_STATE = {
   appStatus: {
@@ -25,7 +25,7 @@ export const configureStore = (initialState = INTIAL_STATE) => {
 
   if(module.hot) {
     //enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
+    module.hot.accept('./reducers', () => {
       store.replaceReducer(reducers);
     })
   }
